@@ -147,31 +147,6 @@ module.exports = function (grunt) {
     },
 
     /**
-     * Compile Sass/SCSS files
-     * https://github.com/gruntjs/grunt-contrib-sass
-     * Compiles all Sass/SCSS files and appends project banner
-     */
-    sass: {
-      dev: {
-        options: {
-          style: 'expanded',
-          banner: '<%= tag.banner %>'
-        },
-        files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
-        }
-      },
-      dist: {
-        options: {
-          style: 'expanded'
-        },
-        files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
-        }
-      }
-    },
-
-    /**
      * Compile Less CSS files
      * https://github.com/gruntjs/grunt-contrib-less
      * Compiles all Less CSS files and appends project banner
