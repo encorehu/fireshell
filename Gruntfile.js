@@ -289,6 +289,10 @@ module.exports = function (grunt) {
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
         tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
       },
+      less: {
+        files: '<%= project.src %>/less/{,*/}*.less',
+        tasks: ['less:dev', 'cssmin:dev', 'autoprefixer:dev']
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
