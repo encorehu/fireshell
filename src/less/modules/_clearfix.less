@@ -1,14 +1,14 @@
 .clears() {
-  content:' ';
-  display:table;
+  content: ' ';
+  display: table;
 }
 .clear {
-  *zoom:1;
+  *zoom: 1;
   &:before {
     .clears;
   }
   &:after {
     .clears;
-    clear:both;
+    clear: both;
   }
 }
