@@ -172,6 +172,28 @@ module.exports = function (grunt) {
     },
 
     /**
+     * Compile Less CSS files
+     * https://github.com/gruntjs/grunt-contrib-less
+     * Compiles all Less CSS files and appends project banner
+     */
+    less: {
+      dev: {
+        options: {
+        },
+        files: {
+          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+        }
+      },
+      dist: {
+        options: {
+        },
+        files: {
+          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+        }
+      }
+    },
+
+    /**
      * Autoprefixer
      * Adds vendor prefixes automatically
      * https://github.com/nDmitry/grunt-autoprefixer
