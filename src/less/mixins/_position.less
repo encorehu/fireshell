@@ -1,0 +1,33 @@
+/*
+http://stackoverflow.com/questions/14910667/how-to-use-if-statements-in-less
+http://stackoverflow.com/questions/14910667/how-to-use-if-statements-in-less
+http://designshack.net/articles/css/10-less-css-examples-you-should-steal-for-your-projects/
+*/
+
+.pos(@property, @value) {
+    @{property}:@value;
+}
+
+.position(@position: relative, @coordinates: 0 0 0 0) {
+
+	/*
+	& when(length(@position)=4){
+		@coordinates:@position when length(@position)==4;
+    	@position:relative;
+	}
+	*/
+
+    @top:extract(@coordinates, 1);
+    @right:extract(@coordinates, 2);
+    @bottom:extract(@coordinates, 3);
+    @left:extract(@coordinates, 4);
+
+    position: @position;
+    .pos(top, @top);
+    .pos(right, @right);
+    .pos(bottom, @bottom);
+    .pos(left, @left);
+
+}
+.class1{.pos(top, 5px);}
+
