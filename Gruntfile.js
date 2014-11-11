@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       app: 'app',
       assets: '<%= project.app %>/assets',
       css: [
-        '<%= project.src %>/scss/style.scss'
+        '<%= project.src %>/less/style.less'
       ],
       js: [
         '<%= project.src %>/js/*.js'
@@ -312,7 +312,7 @@ module.exports = function (grunt) {
    * Run `grunt` on the command line
    */
   grunt.registerTask('default', [
-    'sass:dev',
+    'less:dev',
     'bower:dev',
     'autoprefixer:dev',
     'cssmin:dev',
@@ -329,7 +329,7 @@ module.exports = function (grunt) {
    * Then compress all JS/CSS files
    */
   grunt.registerTask('build', [
-    'sass:dist',
+    'less:dist',
     'bower:dist',
     'autoprefixer:dist',
     'cssmin:dist',
