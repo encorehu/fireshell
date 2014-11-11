@@ -260,10 +260,6 @@ module.exports = function (grunt) {
         files: '<%= project.src %>/js/{,*/}*.js',
         tasks: ['concat:dev', 'jshint']
       },
-      sass: {
-        files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
-      },
       less: {
         files: '<%= project.src %>/less/{,*/}*.less',
         tasks: ['less:dev', 'cssmin:dev', 'autoprefixer:dev']
