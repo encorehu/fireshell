@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       app: 'app',
       assets: '<%= project.app %>/assets',
       css: [
-        '<%= project.src %>/scss/style.scss'
+        '<%= project.src %>/stylus/style.styl'
       ],
       js: [
         '<%= project.src %>/js/*.js'
@@ -172,6 +172,31 @@ module.exports = function (grunt) {
     },
 
     /**
+     * Compile Stylus files
+     * https://github.com/gruntjs/grunt-contrib-stylus
+     * Compiles all stylus files and appends project banner
+     */
+    stylus: {
+      dev: {
+        options: {
+          compress: false,
+          banner: '<%= tag.banner %>'
+        },
+        files: {
+          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+        }
+      },
+      dist: {
+        options: {
+          compress: true,
+        },
+        files: {
+          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
+        }
+      }
+    },
+
+    /**
      * Autoprefixer
      * Adds vendor prefixes automatically
      * https://github.com/nDmitry/grunt-autoprefixer
@@ -263,9 +288,9 @@ module.exports = function (grunt) {
         files: '<%= project.src %>/js/{,*/}*.js',
         tasks: ['concat:dev', 'jshint']
       },
-      sass: {
-        files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
+      stylus: {
+        files: '<%= project.src %>/stylus/{,*/}*.styl',
+        tasks: ['stylus:dev', 'cssmin:dev', 'autoprefixer:dev']
       },
       livereload: {
         options: {
@@ -286,7 +311,7 @@ module.exports = function (grunt) {
    * Run `grunt` on the command line
    */
   grunt.registerTask('default', [
-    'sass:dev',
+    'stylus:dev',
     'bower:dev',
     'autoprefixer:dev',
     'cssmin:dev',
@@ -303,7 +328,7 @@ module.exports = function (grunt) {
    * Then compress all JS/CSS files
    */
   grunt.registerTask('build', [
-    'sass:dist',
+    'stylus:dist',
     'bower:dist',
     'autoprefixer:dist',
     'cssmin:dist',
