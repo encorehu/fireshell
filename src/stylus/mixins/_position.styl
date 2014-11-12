@@ -4,35 +4,35 @@ position(pos=relative, coordinates=0 0 0 0)
         position: relative
 
 
-    top: coordinates[0]
-    right: coordinates[1]
-    bottom: coordinates[2]
-    left: coordinates[3]
+    top=coordinates[0]
+    right=coordinates[1]
+    bottom=coordinates[2]
+    left=coordinates[3]
 
     position: pos
 
     if top == auto
         top: top;
 
-    else if not(unitless(top))
+    else if not top is 'unit'
         top: top;
 
     if right == auto
         right: right;
 
-    else if not(unitless(right))
+    else if not right is 'unit'
         right: right;
 
     if bottom == auto
         bottom: bottom;
 
-    else if not(unitless(bottom))
+    else if not bottom is 'unit'
         bottom: bottom;
 
     if left == auto
         left: left;
 
-    else if not(unitless(left))
+    else if not left is 'unit'
         left: left;
 
 
